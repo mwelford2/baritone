@@ -55,6 +55,23 @@ import java.util.function.Consumer;
  * @author leijurv
  */
 public final class Settings {
+    /**
+     * While mining, attempt to compress mined resources into storage blocks when inventory is full.
+     */
+    public final Setting<Boolean> mineAutoCraftBlocks = new Setting<>(false);
+
+    /**
+     * If true, only auto-compress resources that are part of the current {@code #mine} target filter.
+     * If false, any known compressible resource can be crafted.
+     */
+    public final Setting<Boolean> mineAutoCraftBlocksOnlyMineTargets = new Setting<>(true);
+
+    /**
+     * If true, break and pick up the crafting table after auto-compressing resources.
+     */
+    public final Setting<Boolean> mineAutoCraftCollectCraftingTable = new Setting<>(true);
+
+
     private static final Logger LOGGER = LoggerFactory.getLogger("Baritone");
 
     /**
